@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:form="sap.ui.layout.form">
+	<Popover showHeader="false" contentWidth="320px" contentHeight="500px" placement="HorizontalPreferredRight">
+		<NavContainer id="navCon">
+			<Page id="master" class="sapUiResponsivePadding--header" title="List of Measuring Document">
+				<List id="list" items="{oGlobalModel>/Documentpulllist}">
+					<ObjectListItem title="{oGlobalModel>MDocument}" number="{oGlobalModel>MDocDesc}" type="Active">
+						<firstStatus>
+							<ObjectStatus text="{oGlobalModel>CounterDesc}"/>
+						</firstStatus>
+						<secondStatus></secondStatus>
+						<ObjectAttribute text=""/>
+					</ObjectListItem>
+				</List>
+			</Page>
+			<Page id="detail" class="sapUiResponsivePadding--header" showNavButton="true" navButtonPress="onNavBack" title="Product">
+				<ObjectHeader title="">
+					<attributes>
+						<ObjectAttribute text="Test"/>
+						<ObjectAttribute text="Very High"/>
+					</attributes>
+				</ObjectHeader>
+			</Page>
+		</NavContainer>
+	</Popover>
+</core:FragmentDefinition>

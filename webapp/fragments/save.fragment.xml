@@ -1,0 +1,28 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog id="savevariant" afterClose="dialogAfterclose" title="Save Variant">
+		<content>
+			<f:SimpleForm id="SimpleFormDisplay354" editable="false" layout="ResponsiveGridLayout" title="" labelSpanXL="3" labelSpanL="3"
+				labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+				columnsL="1" columnsM="1" singleContainerFullSize="false">
+				<f:content>
+					<Label text="Application Name" required="false"/>
+					<Text id="app_name_txt" text="MEASURING DOCUMENT"/>
+					<Label text="Created By" required="false"/>
+					<Text id="crea_by_txt" text=""/>
+					<Label text="Variant Name" required="true"/>
+					<Input id="varname" width="200px" placeholder="Enter Variant Name" maxLength="20"/>
+					<Label text="Variant Description" required="false"/>
+					<TextArea id="var_des" width="auto" rows="2" maxLength="150"/>
+					<!--	<Label text="Created Date"/>
+					<Input id="varsavedate" width="200px"/>
+					<Label text="Created Time"/>
+					<Input id="varsavetime" width="200px"/>-->
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<buttons>
+			<Button text="Save" press="savevarok" type="Emphasized"/>
+			<Button text="Cancel" press="savevarcancel" type="Emphasized"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

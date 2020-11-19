@@ -1,0 +1,129 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:form="sap.ui.layout.form">
+	<Dialog horizontalScrolling="true" icon="" showHeader="true" state="None" stretch="false"
+		title="Technical Object" type="Standard" verticalScrolling="true" contentHeight="" contentWidth="50%">
+		<content>
+			<IconTabBar expandable="true" expanded="true" applyContentPadding="true" backgroundDesign="Translucent" upperCase="false" visible="true"
+				selectedKey="Ok">
+				<items>
+					<IconTabFilter iconColor="Default" text="By Functional Location" count="" design="Vertical" showAll="false" textDirection="Inherit"
+						enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<HBox>
+								<Text text="Functional Location" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"
+									class="sapUiTinyMargin"/>
+								<ComboBox id="funloc" placeholder="" editable="true" change="Functionalpull" enabled="true" visible="true" width="auto" valueState="None"
+									maxWidth="auto" class="sapUiMediumMarginEnd" showSecondaryValues="true" filterSecondaryValues="true"
+									items="{ path: 'dataModelGlobal>/FunctionalLocAllDataSet'}">
+									<items>
+										<core:ListItem text="{dataModelGlobal>FunctionalLocation} {dataModelGlobal>FunctionalLocationDesc}" key="{dataModelGlobal>FunctionalLocation}"
+											additionalText=""/>
+									</items>
+								</ComboBox>
+								<Text id="sfl" text="Sub Functional Location" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"
+									visible="{oviewModel>/sublable}" class="sapUiTinyMargin"/>
+								<ComboBox id="subfunctech" placeholder="" editable="true" change="sublocation_change" showSecondaryValues="true" enabled="true" visible="{oviewModel>/subcombo}"
+									width="auto" valueState="None" items="{ path: 'dataModelGlobal>/subpull'}">
+									<items>
+										<core:ListItem text="{dataModelGlobal>SuperiorFunctionalLocation} {dataModelGlobal>SuperiorFunctionalLocationDes}" enabled="true" key="{dataModelGlobal>SuperiorFunctionalLocation}"
+											additionalText=""/>
+									</items>
+								</ComboBox>
+							</HBox>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter iconColor="Default" text="By Equipment" count="" design="Vertical" showAll="false" textDirection="Inherit" enabled="true"
+						visible="true" iconDensityAware="false">
+						<content>
+							<HBox>
+								<Text text="Equipment" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"
+									class="sapUiTinyMargin"/>
+								<ComboBox id="equip" placeholder="" editable="true" change="Equipmentpull" enabled="true" visible="true" width="auto" valueState="None"
+									maxWidth="auto" busy="{oviewModel>/busy}" class="sapUiMediumMarginEnd" showSecondaryValues="true" filterSecondaryValues="true"
+									items="{ path: 'dataModelGlobal>/Equipmentf4'}">
+									<items>
+										<core:ListItem text="{dataModelGlobal>EquipmentNo} {dataModelGlobal>Text}" enabled="true" key="{dataModelGlobal>EquipmentNo}"
+											additionalText=""/>
+									</items>
+								</ComboBox>
+							</HBox>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter iconColor="Default" text="By Measuring Point" count="" design="Vertical" showAll="false" textDirection="Inherit"
+						enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<HBox>
+								<Text text="Measuring Point" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"
+									class="sapUiTinyMargin"/>
+								<ComboBox id="mes" placeholder="" change="measuringpointpull" editable="true" enabled="true" visible="true" width="auto" valueState="None"
+									maxWidth="auto" showSecondaryValues="true" class="sapUiMediumMarginEnd" items="{ path: 'dataModelGlobal>/MeasuringPointSet'}">
+									<items>
+										<core:ListItem text="{dataModelGlobal>MeasuringPoint} {dataModelGlobal>MeasuringPointDes}" enabled="true" key="{dataModelGlobal>MeasuringPoint}"
+											additionalText=""/>
+									</items>
+								</ComboBox>
+							</HBox>
+						</content>
+					</IconTabFilter>
+							<IconTabSeparator icon="" iconDensityAware="false"/>
+				</items>
+				<content>
+					<Text text="Tab Bar Content goes here ..." width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"
+						visible="true"/>
+				</content>
+			</IconTabBar>
+			<Table id="functable" width="auto" noDataText="{oviewModel>/noDatafunc}" mode="SingleSelect" showSeparators="All" growing="true"
+				items="{ path: 'dataModelGlobal>/Functionaltablepullset'}" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin"
+				visible="{oviewModel>/functable}">
+				<infoToolbar>
+					<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+						<content>
+							<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</content>
+					</Toolbar>
+				</infoToolbar>
+				<headerToolbar>
+					<OverflowToolbar width="auto" height="auto" design="Solid" visible="true" enabled="true">
+						<content>
+							<Title text="" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+							<ToolbarSpacer width=""/>
+						</content>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="Measuring Point" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="Description" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</header>
+						<footer/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active">
+						<Text id="p1" text="{dataModelGlobal>MeasuringPoint}"/>
+						<Text id="p2" text="{dataModelGlobal>MeasuringPointDes}"/>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton/>
+		<buttons>
+			<Button text="Clear Filter" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="clearfilter"/>
+			<Button id="techok" text="Ok" type="Emphasized" iconFirst="true" width="auto" enabled="true" iconDensityAware="false" press="techok"
+				visible="{oviewModel>/okbutton}"/>
+			<Button text="Cancel" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="canceltecch"/>
+		</buttons>
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
+	</Dialog>
+</core:FragmentDefinition>

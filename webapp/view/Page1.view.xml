@@ -1,0 +1,454 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.ba293bd41-us_1.createMeasuringPointGrunt.controller.Page1"
+	xmlns:uxap="sap.uxap" xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified"
+	xmlns:layout="sap.ui.layout">
+	<uxap:ObjectPageLayout showTitleInHeaderContent="true" showHeaderContent="true" showAnchorBar="true" showFooter="true"
+		subSectionLayout="TitleOnTop" busy="{oGlobalModel>/deLay}" busyIndicatorDelay="0" class="sapUiSizeCompact">
+		<!--	<uxap:headerContent>
+			<Label text="Select Measuring Point" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"
+				visible="false"/>
+			<Label id="Decriptions" text="Select Measuring Point" design="Standard" required="false" textAlign="Begin" textDirection="Inherit" visible="false"/>
+			<Input id="mespoint" type="Text" placeholder="Select Measuring Point" showValueHelp="true" valueHelpRequest="handleValueHelp" enabled="true" visible="true"
+				width="auto" valueHelpOnly="true" required="false" valueStateText="Invalid entry" maxLength="22"/>
+		</uxap:headerContent>-->
+		<uxap:headerContent>
+			<Text text="IK11" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+			<Label text="Measuring Point:" design="Standard" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+			<Input id="mespoint" type="Text" placeholder="Select Measuring Point" showValueHelp="true" valueHelpRequest="handleValueHelp" enabled="true"
+				visible="true" width="auto" valueHelpOnly="true" required="false" valueStateText="Invalid entry" maxLength="22"/>
+		</uxap:headerContent>
+		<uxap:headerTitle>
+			<uxap:ObjectPageHeader objectImageURI="sap-icon://measure" objectTitle="Create Measuring Document" objectSubtitle="" headerDesign="Light"
+				objectImageShape="Circle" isObjectIconAlwaysVisible="false" isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false"
+				isActionAreaAlwaysVisible="true">
+				<uxap:navigationBar>
+					<Bar>
+						<contentLeft>
+							<Button id="Dashboard" text="Back to Dashboard" icon="" press="HomeButton" tooltip="Back"/>
+						</contentLeft>
+					</Bar>
+				</uxap:navigationBar>
+				<!--<uxap:actions>
+					<Button id="Dashboard" text="Back to Dashboard" icon="" press="HomeButton" tooltip="Back"/>
+				</uxap:actions>-->
+				<uxap:breadCrumbsLinks/>
+				<uxap:navigationBar/>
+			</uxap:ObjectPageHeader>
+		</uxap:headerTitle>
+		<uxap:sections>
+			<uxap:ObjectPageSection showTitle="true" title="Page Section Title" titleUppercase="true" visible="{oviewModel>/generaldata}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection title="general data" mode="Expanded">
+						<uxap:blocks>
+							<form:Form width="100%" editable="true" visible="true">
+								<form:title/>
+								<form:formContainers>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Characteristics" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<Input id="Characteristics_inp" value="{dataModelGlobal>/Measurepulldeta/CharacteristicName} {dataModelGlobal>/Measurepulldeta/CharacteristicNameDes}"
+														showValueHelp="false" editable="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" required="false"
+														valueStateText="Invalid entry"/>
+													<!--	<Text text="{dataModelGlobal>/Measurepulldeta/CharacteristicName} {dataModelGlobal>/Measurepulldeta/CharacteristicNameDes}" width="auto"
+														maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
+												</form:fields>
+											</form:FormElement>
+											<!--	<form:FormElement visible="true">
+												<form:label>
+													<Label text="" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="false"/>
+												</form:label>
+												<form:fields>
+													<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="false"/>
+												</form:fields>
+											</form:FormElement>-->
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Characteristics Unit" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<Input id="Characteristics_Unit_inp" value="{dataModelGlobal>/Measurepulldeta/Unit} {dataModelGlobal>/Measurepulldeta/UnitDes}" showValueHelp="false" editable="false"
+														enabled="true" visible="true" width="auto" valueHelpOnly="false" required="false" valueStateText="Invalid entry"/>
+													<!--<Text text="{dataModelGlobal>/Measurepulldeta/Unit} {dataModelGlobal>/Measurepulldeta/UnitDes}" width="auto" maxLines="1" wrapping="false"
+														textAlign="Begin" textDirection="Inherit" visible="true"/>-->
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title/>
+									</form:FormContainer>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="{oviewModel>/functionllocation}">
+												<form:label>
+													<Label text="Functional Location" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<!--	<Text text="{dataModelGlobal>/Measurepulldeta/FunctionalLocation} {dataModelGlobal>/Measurepulldeta/FunctionalLocationDes} " width="auto"
+														maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
+													<Input id="Functional_Location_inp" value="{dataModelGlobal>/Measurepulldeta/FunctionalLocation} {dataModelGlobal>/Measurepulldeta/FunctionalLocationDes}"
+														showValueHelp="false" editable="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" required="false"
+														valueStateText="Invalid entry"/>
+												</form:fields>
+											</form:FormElement>
+											<!--	<form:FormElement visible="{oviewModel>/funcequip}">
+												<form:label>
+													<Label text="Functional Location / Equipment" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"
+														visible="true"/>
+												</form:label>
+											</form:FormElement>-->
+											<form:FormElement visible="{oviewModel>/equipment}">
+												<form:label>
+													<Label text="Equipment" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<Input id="Equip_inp" value="{dataModelGlobal>/Measurepulldeta/EquipmentNumber} {dataModelGlobal>/Measurepulldeta/EquipmentDes}" showValueHelp="false"
+														editable="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" required="false" valueStateText="Invalid entry"/>
+													<!--	<Text text="{dataModelGlobal>/Measurepulldeta/EquipmentNumber} {dataModelGlobal>/Measurepulldeta/EquipmentDes}" width="auto" maxLines="1"
+														wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Description" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<TextArea id="description" value="" rows="1" maxLength="40" editable="{oviewModel>/description}"/>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title/>
+									</form:FormContainer>
+								</form:formContainers>
+								<form:layout>
+									<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+								</form:layout>
+							</form:Form>
+						</uxap:blocks>
+						<uxap:moreBlocks/>
+						<uxap:actions/>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+				<uxap:customAnchorBarButton/>
+			</uxap:ObjectPageSection>
+			<uxap:ObjectPageSection id="counter" showTitle="true" title="Page Section Title" titleUppercase="true" visible="{oviewModel>/counterdata}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection title="Document data" mode="Expanded">
+						<uxap:blocks>
+							<form:Form width="100%" editable="true" visible="true">
+								<form:title/>
+								<form:formContainers>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Counter Reading" design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<!--	<StepInput id="reading" value="" displayValuePrecision="" min="" max="" width="" largerStep="" stepMode="Multiple" valueState="Invalid entry" enabled="true"
+														editable="true" description="" fieldWidth="" textAlign="" validationMode="" liveChange="change" submit="Livechange"/>-->
+													<Input id="reading" value="" type="Number" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false"
+														required="false" valueHelpRequest="handleValueHelp" valueStateText="Invalid entry" maxLength="22" liveChange="change" submit="Livechange"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Difference" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<Input id="difference" value="" type="Number" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false"
+														required="false" liveChange="difflength" submit="submmit" valueStateText="Invalid entry" maxLength="22" placeholder=""
+														editable="{oviewModel>/diffeditable}"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Last Counter Reading" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<Input id="Last" value="" type="Number" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false"
+														required="false" valueStateText="Invalid entry" maxLength="22" editable="false"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="{oviewModel>/Annual}">
+												<form:label>
+													<Label text="Counter Overflow Reading" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"
+														visible="true"/>
+												</form:label>
+												<form:fields>
+													<Input id="Annual" value="" type="Number" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false"
+														required="false" valueStateText="Invalid entry" maxLength="22"/>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title/>
+									</form:FormContainer>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Total Counter Reading" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<Input id="Counter" value="" type="Number" showValueHelp="false" enabled="true"
+														editable="false" visible="true" width="auto" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="22"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Valuation Code Group" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<Input id="valuationgrp" value="" showValueHelp="false" enabled="true" editable="false"
+														visible="true" width="auto" valueHelpOnly="false" required="false" valueStateText="Invalid entry"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Valuation Code" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<ComboBox id="valcode" placeholder="" editable="{oviewModel>/valuationcode}" enabled="true" visible="true" width="auto" valueState="None"
+														maxWidth="auto" class="sapUiMediumMarginEnd" showSecondaryValues="true" filterSecondaryValues="true"
+														items="{ path: 'dataModelGlobal>/code'}">
+														<items>
+															<core:ListItem text="{dataModelGlobal>ValuationCode} {dataModelGlobal>CodeGroupDes}" enabled="true" key="{dataModelGlobal>ValuationCode}"
+																additionalText=""/>
+														</items>
+													</ComboBox>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title/>
+									</form:FormContainer>
+								</form:formContainers>
+								<form:layout>
+									<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+								</form:layout>
+							</form:Form>
+						</uxap:blocks>
+						<uxap:moreBlocks/>
+						<uxap:actions/>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+				<uxap:customAnchorBarButton/>
+			</uxap:ObjectPageSection>
+			<uxap:ObjectPageSection id="pointer" showTitle="true" title="Page Section Title" titleUppercase="true" visible="{oviewModel>/pointerdata}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection title="Document data" mode="Expanded">
+						<uxap:blocks>
+							<form:Form width="100%" editable="true" visible="true">
+								<form:title/>
+								<form:formContainers>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Measurement Reading" design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<Input id="Mesreading" value="" type="Number" showValueHelp="false" enabled="true" editable="{oviewModel>/mesreading}" visible="true"
+														width="auto" valueHelpOnly="false" required="false" valueStateText="Invalid entry" liveChange="meslength"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Target Value" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<Input id="targetvalue" value="" type="Text" showValueHelp="false" enabled="true"
+														editable="false" visible="true" width="auto" valueHelpOnly="false" required="false" valueStateText="Invalid entry"/>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title/>
+									</form:FormContainer>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Valuation Code" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<Input id="pointercode" value="" type="Text"
+														showValueHelp="false" enabled="true" editable="false" visible="true" width="auto" valueHelpOnly="false" required="false"
+														valueStateText="Invalid entry"/>
+													<ComboBox id="pointercodegrp" placeholder="" editable="{oviewModel>/pointercodegrp}" enabled="true" visible="true" width="auto"
+														maxWidth="auto" class="sapUiMediumMarginEnd" showSecondaryValues="true" filterSecondaryValues="true"
+														items="{ path: 'dataModelGlobal>/code'}">
+														<items>
+															<core:ListItem text="{dataModelGlobal>ValuationCode} {dataModelGlobal>CodeGroupDes}" enabled="true" key="{dataModelGlobal>ValuationCode}"/>
+														</items>
+													</ComboBox>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title/>
+									</form:FormContainer>
+								</form:formContainers>
+								<form:layout>
+									<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+								</form:layout>
+							</form:Form>
+						</uxap:blocks>
+						<uxap:moreBlocks/>
+						<uxap:actions/>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+				<uxap:customAnchorBarButton/>
+			</uxap:ObjectPageSection>
+			<uxap:ObjectPageSection showTitle="true" title="Page Section Title" titleUppercase="true" visible="{oviewModel>/documenthistory}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection title="Document history" mode="Expanded">
+						<uxap:blocks>
+							<Panel id="panel_id" expandable="false" width="auto" class="sapUiResponsiveMargin">
+								<headerToolbar>
+									<OverflowToolbar height="3rem">
+										<Title text=""/>
+										<ToolbarSpacer/>
+										<!--	<u:FileUploader buttonText="Upload" visible="{oviewModel>/upload}" buttonOnly="true" name="myFileUpload" value=""
+											placeholder="Upload Attachment" change="_onFileUploaderChange" id="ci_fileUploader1"/>-->
+									</OverflowToolbar>
+								</headerToolbar>
+								<content>
+									<Table width="100%" noDataText="No Data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+										items="{dataModelGlobal>/documenthistory}">
+										<infoToolbar>
+											<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+												<content>
+													<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</content>
+											</Toolbar>
+										</infoToolbar>
+										<headerToolbar>
+											<OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+												<content>
+													<Title text="{i18n>Tabelheading}" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+													<ToolbarSpacer width=""/>
+												</content>
+											</OverflowToolbar>
+										</headerToolbar>
+										<columns>
+											<Column width="auto" hAlign="Center" vAlign="Top" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<header>
+													<Text text="Doc.Number" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</header>
+												<footer/>
+											</Column>
+											<Column width="auto" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<header>
+													<Text text="Meas.Date" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</header>
+												<footer/>
+											</Column>
+											<Column width="auto" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<header>
+													<Text text="Meas.Time" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</header>
+												<footer/>
+											</Column>
+											<Column width="auto" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<header>
+													<Text text="Meas.Countr/Rdg" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</header>
+												<footer/>
+											</Column>
+											<Column width="auto" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<header>
+													<Text text="Valuation Code" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</header>
+												<footer/>
+											</Column>
+											<!--<Column width="auto" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">-->
+											<!--	<header>-->
+											<!--		<Text text="Text" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
+											<!--	</header>-->
+											<!--	<footer/>-->
+											<!--</Column>-->
+											<Column width="auto" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<header>
+													<Text text="Rdg.Taken By" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</header>
+												<footer/>
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem type="Active">
+												<cells>
+													<Text text="{dataModelGlobal>MDocument}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+													<Text text="{ path: 'dataModelGlobal>Date', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd.MM.yyyy' } }"/>
+													<Text text="{path: 'dataModelGlobal>Time' , type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern : 'HH:mm:ss' } }" width="auto"
+														maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+													<Text text="{dataModelGlobal>Reading}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+													<Text text="{dataModelGlobal>ValCode}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+													<Text text="{dataModelGlobal>TakenBy}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+									<!--	<List id="UploadCollection" mode="Delete" delete="ci_handleDelete" itemPress="downListPress" enableBusyIndicator="true" headerText=""
+										noDataText="" growing="true"></List>-->
+								</content>
+							</Panel>
+							<!---->
+						</uxap:blocks>
+						<uxap:moreBlocks/>
+						<uxap:actions/>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+				<uxap:customAnchorBarButton/>
+			</uxap:ObjectPageSection>
+			<uxap:ObjectPageSection showTitle="true" title="Page Section Title" titleUppercase="true" visible="{oviewModel>/attachment}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection title="Attachments">
+						<uxap:blocks>
+							<List id="UploadCollection" mode="Delete" delete="ci_handleDelete" itemPress="downListPress" enableBusyIndicator="true" headerText=""
+								noDataText="" growing="true"></List>
+							<!--	<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+								<headerToolbar>
+									<OverflowToolbar height="3rem">
+										<Title text="Attachment List"/>
+										<ToolbarSpacer/>
+							
+										<u:FileUploader buttonText="Upload" visible="{oviewModel>/upload}" buttonOnly="true" name="myFileUpload" value=""
+											placeholder="Upload Attachment" change="_onFileUploaderChange" id="ci_fileUploader1"/>
+									</OverflowToolbar>
+								</headerToolbar>
+								<content>
+									<List id="UploadCollection" mode="Delete" delete="ci_handleDelete" itemPress="downListPress" enableBusyIndicator="true" headerText=""
+										noDataText="" growing="true"></List>
+								</content>
+							</Panel>-->
+						</uxap:blocks>
+						<uxap:actions>
+							<u:FileUploader buttonText="Upload" visible="{oviewModel>/upload}" buttonOnly="true" name="myFileUpload" value=""
+								placeholder="Upload Attachment" change="_onFileUploaderChange" id="ci_fileUploader1"/>
+						</uxap:actions>
+					</uxap:ObjectPageSubSection>
+					<uxap:ObjectPageSubSection title="Uploader">
+						<uxap:blocks></uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+				<uxap:customAnchorBarButton/>
+			</uxap:ObjectPageSection>
+		</uxap:sections>
+		<uxap:footer>
+			<OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+				<content>
+					<Button text="Document List" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+						press="List"/>
+					
+					<ToolbarSpacer width=""/>
+				
+					<Button text="Save Variant" type="Emphasized" iconFirst="true" width="auto" enabled="false" iconDensityAware="false"
+						press="Save_press" visible="true" id="savevar"/>
+							<Button text="Open Variant" type="Emphasized" iconFirst="true" width="auto" enabled="true" iconDensityAware="false"
+						press="Open_press" visible="true"/>
+					<Button text="Create" press="post_document" type="Emphasized" iconFirst="true" width="auto" enabled="false"
+						visible="true" iconDensityAware="false" id="createmesdoc"/>
+				</content>
+			</OverflowToolbar>
+		</uxap:footer>
+	</uxap:ObjectPageLayout>
+</mvc:View>
